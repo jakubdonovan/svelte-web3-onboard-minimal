@@ -71,7 +71,7 @@
 
 	// SET PROVIDER IF ALREADY CONNECTED AT COMPONENT LOAD
 	if (onboard.state.get().wallets.length === 1) {
-		const instance = await onboard.state.get().wallets[0].provider;
+		const instance = onboard.state.get().wallets[0].provider;
 		defaultEvmStores.setProvider(instance);
 	}
 
@@ -98,8 +98,9 @@
 	// 	return balance / 10 ** 9;
 	// };
 
-	$: console.log('PROVIDER:', defaultEvmStores);
+	$: console.log('defaultEvmStores:', defaultEvmStores);
 	$: console.log('CONNECTED:', $connected);
+	$: console.log('PROVIDER:', $provider);
 	$: console.log('STATE:', state);
 </script>
 
